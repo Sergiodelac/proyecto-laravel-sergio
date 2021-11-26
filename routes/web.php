@@ -48,3 +48,19 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/* Email MailTrap */
+Route::get('enviar', ['as' => 'enviar', function () {
+
+    $data = ['link' => "https://digital-pineapple.com.mx&#39;"];
+    
+    Mail::send('emails.notificacion', $data, function ($message) {
+    
+    $message->from('ventas@digital-pineapple.com.mx', 'digital-pineapple.com.mx');
+    
+    $message->to('dsm43@gmail.com')->subject('Este es Mi Primer Correo Con MailTrap desde Laravel');
+    
+    });
+    
+    return 'Se envío el email';
+    }]);

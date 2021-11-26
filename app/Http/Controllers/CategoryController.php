@@ -18,7 +18,7 @@ class CategoryController extends Controller
         Select * from categories  */
     public function index(){
 
-        $categories = Category::latest()->paginate(10);
+        $categories = Category::paginate(10);
         //return $categories;
         return view('categories.index',[
         'categories'=> $categories
