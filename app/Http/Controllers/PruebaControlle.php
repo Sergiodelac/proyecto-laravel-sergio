@@ -1,16 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Article;
-use App\Category;
+
 use Illuminate\Http\Request;
 
-class ControllerArticle extends Controller
+class PruebaControlle extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth','verified']);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -18,12 +13,7 @@ class ControllerArticle extends Controller
      */
     public function index()
     {
-
-        $articles = Article::all();
-        return view('articles.index',[
-            'articles'=> $articles
-            ]);
-
+        //
     }
 
     /**
@@ -33,9 +23,7 @@ class ControllerArticle extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        //return $categories;
-        return view('Articles.add', ["categories" => $categories]);
+        //
     }
 
     /**
@@ -47,16 +35,6 @@ class ControllerArticle extends Controller
     public function store(Request $request)
     {
         //
-
-        Article::create([
-        'title'=>$request->title,
-        'img'=>$request->img,
-        'subtitle'=>$request->subtitle,
-        'body'=>$request->body,
-        'category_id'=>$request->category_id,
-        'img_id'=>$request->img_id
-        ]);
-        return ('el article se dio de alta de manera correcta');
     }
 
     /**
@@ -67,15 +45,7 @@ class ControllerArticle extends Controller
      */
     public function show($id)
     {
-        //obtines el article 
-        $article = Article::find($id);
-
-        return $article;
-
-        return view('article.show',[
-            '$articel' => $article
-        ]);
-
+        //
     }
 
     /**
